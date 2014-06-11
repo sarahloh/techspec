@@ -9,9 +9,11 @@ db.once('open', function callback(){
     name: String
   });
   var User = mongoose.model('User', userSchema);
+/*
   var user1 = new User({name: 'Molly'});
   user1.save(function(err, user1) {
     if (err) return console.error(err);
     console.info(user1.name + ' added!');
   });
+*/
 });
