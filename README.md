@@ -1,4 +1,4 @@
 # TechSpec
-Web application for creating technical specification for bands and musicians.
+Web application for creating technical specifications for bands and musicians.
 
 Created by Sarah Loh
