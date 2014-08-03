@@ -1,7 +1,20 @@
 var mongoose = require('mongoose'),
+   testUsers = require('./../testUsers.js'),
+      models = require('./../models')(mongoose),
       config = require('./../config/config.js');
-mongoose.connect(config.database_url);
-var models = require('./../models')(mongoose);
+
+mongoose.connect(config.database_url, function(){
+  console.log('connected!');
+  mongoose.connection.db.dropDatabase(function(){
+    models.User.collection.insert(testUsers.users, function(){
+      console.log('users inserted');
+    });
+  });
+});
+//var models = require('./../models')(mongoose);
+//models.User.collection.insert(testUsers.users, function(){
+//  console.log('users inserted');
+//});
 
 exports.login = function(req, res){
   var u = req.body;
