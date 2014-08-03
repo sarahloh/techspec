@@ -1,8 +1,12 @@
 var mongoose = require('mongoose');
 module.exports = function(mongoose) {
   var User = mongoose.Schema({
-    email        :    String,
-    password     :    String
+    name       :  {
+      first    :  String,
+      last     :  String
+    },
+    email      :  String,
+    password   :  String
   });
   // declare models
   var models = {
@@ -10,4 +14,3 @@ module.exports = function(mongoose) {
   };
   return models;
 }
-console.log('in models.js');
