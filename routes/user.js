@@ -12,6 +12,20 @@ exports.login = function(req, res){
 };
 exports.signup = function(req, res){
   var u = req.body;
+
+  var user = new models.User({
+    name      :  {
+      first   :  req.body.firstName, 
+      last    :  req.body.lastName
+    }, 
+    email     :  req.body.email,
+    password  :  req.body.password
+  });
+
+  user.save(function(err, user){
+    if(err) return console.error(err);
+  });
+ 
   res.send({
     name      :  {
       first   :  req.body.firstName, 
@@ -23,7 +37,7 @@ exports.signup = function(req, res){
 };
 exports.findAll = function(req, res){
 
-  models.Users.find(function(err, users){
+  models.User.find(function(err, users){
     if(err) return console.error(err);
     console.log(users);
     res.send(users);

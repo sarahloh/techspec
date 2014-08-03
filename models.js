@@ -10,7 +10,7 @@ module.exports = function(mongoose) {
   });
   // declare models
   var models = {
-    Users : mongoose.model('Users', User)
+    User : mongoose.model('User', User)
   };
   return models;
 }
